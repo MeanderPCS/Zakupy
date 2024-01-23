@@ -1,15 +1,11 @@
 package com.example.zakupy;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.*;
 
 import androidx.annotation.NonNull;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Zakupy.db";
@@ -32,7 +28,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + C_KATEGORIA + " TEXT, "
                 + C_WYBRANY + " INTEGER)";
         db.execSQL(create);
-        db.close();
     }
 
     @Override
