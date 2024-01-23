@@ -40,43 +40,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Object[] dane = new Object[]{Nazwa, Kategoria, Wybrany ? 1 : 0};
         db.execSQL("INSERT INTO PRODUKTY (Nazwa, Kategoria, Wybrany) VALUES (?,?,?)",dane);
-        db.close();
     }
 
     public void usunProdukt(String nazwa) {
         SQLiteDatabase db = this.getWritableDatabase();
         String[] dane = {nazwa};
         db.execSQL("DELETE FROM PRODUKTY WHERE NAZWA = ?", dane);
-        db.close();
     }
 
-    public void aktualizujProdukty(int id, boolean Wybrany) {
+    public void aktualizujProdukty(Object id, boolean Wybrany) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        if (db != null) {
-            ContentValues values = new ContentValues();
-            values.put("wybrany", Wybrany ? 1 : 0);
+        ContentValues values = new ContentValues();
+        values.put("wybrany", Wybrany ? 1 : 0);
 
-            String Zapytanie = "id = ?";
-            String[] arg = {String.valueOf(id)};
+        String Zapytanie = "id = ?";
+        String[] arg = {String.valueOf(id)};
 
-            db.update("Produkty", values, Zapytanie, arg);
-        } else {
-
-        }
+        db.update("Produkty", values, Zapytanie, arg);
     }
 
     public Cursor pobierzWszystko() {
         SQLiteDatabase db = this.getReadableDatabase();
         String[] kolumny = {C_ID, C_NAZWA, C_KATEGORIA, C_WYBRANY};
 
-        return db.query(N_PRODUKTY, kolumny, null, null, null, null, C_KATEGORIA);
+        return db.query(N_PRODUKTY, kolumny, null, null, null, null, null);
     }
 
     public Cursor pobierzWybrane() {
         SQLiteDatabase db = this.getReadableDatabase();
         String[] kolumny = {C_ID, C_NAZWA, C_KATEGORIA, C_WYBRANY};
 
-        return db.query(N_PRODUKTY, kolumny, "wybrany = 1", null, null, null, C_KATEGORIA);
+        return db.query(N_PRODUKTY, kolumny, "wybrany = 1", null, null, null, null);
     }
 }

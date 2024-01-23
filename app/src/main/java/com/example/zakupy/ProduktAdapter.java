@@ -50,10 +50,8 @@ public class ProduktAdapter extends RecyclerView.Adapter<ProduktAdapter.ViewHold
         holder.checkBoxC_Wybrany.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                int currentPosition = holder.getAdapterPosition();
-                if (currentPosition != RecyclerView.NO_POSITION) {
-                    db.aktualizujProdukty(currentPosition, isChecked);
-                }
+                Object currentPosition = holder.itemView.getTag();
+                db.aktualizujProdukty(currentPosition, isChecked);
             }
         });
     }
