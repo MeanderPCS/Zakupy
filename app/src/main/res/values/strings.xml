@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Zakupy</string>
+    <string name="compile">Stwórz listę</string>
+    <string name="delete">Usun</string>
+    <string name="add">Add</string>
+    <string name="dodaj">Dodaj</string>
+    <string name="WybranyAdd">Dodać do Obecnej Listy?</string>
+    <string name="nazwa_produktu">Nazwa Produktu</string>
+    <string name="kategoria_produktu">Kategoria Produktu</string>
+    <string name="usun">Usun</string>
+    <string name="action_settings">settings</string>
+    <string name="powr">Powróć</string>
+    <string name="dodac_wybrany">Dodać do zakupów?</string>
+    <string name="nazwa">Nazwa</string>
+    <string name="kategoria">Kategoria</string>
+</resources>
